@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Build output
+dist/
+build/
+.next/
+target/
+out/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Pipeline output (selective)
+# Plans and progress ARE tracked (they're reusable across sessions)
+# Reports and reviews are NOT tracked (they're session-specific)
+.agents/execution-reports/
+.agents/code-reviews/
+
+# Local settings (project settings.json IS tracked, local overrides are NOT)
+.claude/settings.local.json
