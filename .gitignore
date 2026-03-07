@@ -30,3 +30,7 @@ Thumbs.db
 
 # Screenshots (keep references/ images intentionally)
 Screenshot*.png
+
+# Reddit drafts
+references/reddit-title.md
+references/reddit-body.md
