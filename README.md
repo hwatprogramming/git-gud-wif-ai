@@ -103,6 +103,29 @@ Release:           /release (orchestrates /qa → /security-audit → /create-pr
 Doc cleanup:       /sync-docs (anytime — archive plans, sync docs)
 ```
 
+## Managing Context (Important)
+
+Claude Code has a limited context window. When it fills up, it **compacts** — summarizing earlier messages to free space. This loses detail and can cause Claude to forget what it was doing. Personally, one or two compactions per session is what I'm comfortable with — beyond that the results can become unpredictable.
+
+**Best practices:**
+
+- **Always start sessions with `/prime`** — this loads your project context so Claude knows where it is
+- **Before context gets too long, run `/update-progress`** — this saves what you've done and what's left to a handoff doc
+- **Then start a new session** (click the Claude icon in VS Code, or run `claude` in terminal) and run `/prime` to pick up where you left off
+- **Aim for one or two compactions max per session** — if you're hitting more, it's time to start fresh
+- **Keep sessions focused** — one feature or task per session works better than marathon sessions
+
+**The pattern:**
+
+```
+Start session:     /prime
+Do work:           /describe → /plan → /execute → ...
+Before it gets long: /update-progress
+New session:       /prime → continue from where you left off
+```
+
+This is how the template is designed to work — `/prime` reads your project state, `/update-progress` writes it. Together they give you clean session handoffs without losing context.
+
 ## Token & Rate Limits
 
 The template itself is lightweight — **~6,000-8,000 tokens** loaded per turn (~3-4% of the 200k context window). Skills load on-demand, adding ~400-1,400 tokens each.
