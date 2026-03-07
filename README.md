@@ -30,11 +30,17 @@ A Claude Code project template with 34 skills, 6 subagents, automated hooks, and
 
 ## How to Install
 
-### Step 1: Clone this repo
+There are two ways to install: **clone + `/upgrade-template`** (recommended) or **download ZIP + manual copy**.
+
+---
+
+### Option A: Clone + `/upgrade-template` (Recommended)
+
+**Step 1: Clone this repo**
 
 Clone this repo somewhere on your machine — this is your local copy of the template.
 
-**GitHub Desktop** (recommended): Click the green **Code** button on this repo's GitHub page, then "Open with GitHub Desktop".
+**GitHub Desktop**: Click the green **Code** button on this repo's GitHub page, then "Open with GitHub Desktop".
 
 <details>
 <summary>GitHub Desktop step-by-step</summary>
@@ -55,7 +61,7 @@ Clone this repo somewhere on your machine — this is your local copy of the tem
 
 **Command line**: `git clone https://github.com/hwatprogramming/git-gud-wif-ai.git`
 
-### Step 2: Install the template into your project
+**Step 2: Install the template into your project**
 
 Open Claude Code inside your project and run:
 
@@ -69,7 +75,19 @@ This detects your existing `.claude/` and `.agents/` directories and asks whethe
 
 Don't have a project yet? Create a folder, initialize git (`git init` or create a new repo via GitHub Desktop), then open it in VS Code and run the command above.
 
-### Step 3: Start using it
+---
+
+### Option B: Download ZIP + Manual Copy
+
+1. Download the ZIP from the green **Code** button on this repo's GitHub page
+
+   ![Download ZIP](references/github-download-options.png)
+
+2. Extract it and copy `.claude/`, `.agents/`, and `CLAUDE.md` from `Claude-Code-Template-V6.5.1/` into your project root
+
+---
+
+### Start using it
 
 1. Run `/template-info` to verify the template is installed
 2. Pick your workflow:
@@ -84,18 +102,6 @@ Full testing:      /test-everything → suggests /release
 Release:           /release (orchestrates /qa → /security-audit → /create-pr)
 Doc cleanup:       /sync-docs (anytime — archive plans, sync docs)
 ```
-
-<details>
-<summary>Alternative: manual copy (no /upgrade-template)</summary>
-
-1. Download the ZIP from the green **Code** button on this repo's GitHub page
-
-   ![Download ZIP](references/github-download-options.png)
-
-2. Extract it and copy `.claude/`, `.agents/`, and `CLAUDE.md` from `Claude-Code-Template-V6.5.1/` into your project root
-3. Open Claude Code and run `/help` to get started
-
-</details>
 
 ## Token & Rate Limits
 
