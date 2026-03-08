@@ -66,7 +66,7 @@ Clone this repo somewhere on your machine — this is your local copy of the tem
 Open Claude Code inside your project and run:
 
 ```
-/upgrade-template [path to the cloned Claude-Code-Template-V6.5.1 folder]
+/upgrade-template [path to your project]
 ```
 
 This detects your existing `.claude/` and `.agents/` directories and asks whether to overwrite, merge, or keep each file. Works for both new and existing projects — including projects that already have an older version of this template.
