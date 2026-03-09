@@ -29,7 +29,7 @@ Show each target with `.claude/` status: `[x]` = upgrade, `[ ]` = fresh install.
 
 ### 2. Inventory Source & Target
 
-Dynamically list `.claude/` contents in both (skills, agents, rules, reference, templates, settings.json). Do not hardcode file names.
+Dynamically list `.claude/` contents in both (skills, agents, rules, reference, templates, settings.json). **Do NOT hardcode file names — always list at runtime so future versions are covered automatically.**
 
 ### 3. Clean Up Deprecated Skills
 

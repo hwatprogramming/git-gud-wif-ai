@@ -67,11 +67,11 @@ For **Simple** tasks: description, step-by-step tasks with validation, acceptanc
 ### Phase 2: Codebase Intelligence
 
 1. Project structure — languages, frameworks, config, build
-2. Reference doc scan — first 5 lines of each `.claude/reference/` file, fully read only matching docs
-3. Pattern recognition — similar implementations, naming, error handling. Check CLAUDE.md.
+2. Reference doc scan — list all files in `.claude/reference/` first, read first 5 lines of each, fully read only matching docs
+3. Pattern recognition — find similar implementations in codebase for reference. Check naming, error handling, CLAUDE.md.
 4. Dependencies — relevant libraries, versions, integration patterns
-5. Testing patterns — framework, structure, coverage
-6. Integration points — files to update, files to create, registration patterns
+5. Testing patterns — framework, structure, coverage. Find existing test examples for reference.
+6. Integration points — files to update, files to create, registration patterns, database/model patterns if applicable
 
 Ask user if requirements are unclear.
 

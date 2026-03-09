@@ -20,7 +20,7 @@ Systematic security review: dependency CVE scanning + OWASP Top 10 code review. 
 
 ### 1. Read Project Context
 
-Read `CLAUDE.md` (tech stack, entry points) and `PRD.md` (data handled, auth, payments, public exposure). Identify risk surface.
+Read `CLAUDE.md` (tech stack, entry points) and `PRD.md` (data handled, auth, payments, public exposure). Identify risk surface: external APIs, authentication flows, user-submitted data, file uploads, database queries.
 Scan `.claude/reference/` headers (first 5 lines) — fully read only docs whose **Applies to** tags match the project stack.
 
 ### 2. Dependency Vulnerability Scan

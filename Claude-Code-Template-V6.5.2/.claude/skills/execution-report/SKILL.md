@@ -55,7 +55,7 @@ CLAUDE.md updates, skill updates, new skills, validation additions.
 **Risky**: add to report as "Changes NOT Applied" with rationale.
 
 ### 5. Log to Changelog
-Append to `.agents/changelog.md`: date, trigger, applied/deferred changes, rationale.
+Append to `.agents/changelog.md` (create if it doesn't exist): date, trigger, applied/deferred changes, rationale. Every finding must have a concrete improvement suggestion.
 
 ## Next Step
 

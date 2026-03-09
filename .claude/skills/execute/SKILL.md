@@ -5,7 +5,7 @@ argument-hint: "path-to-plan"
 
 # Execute: Implement from Plan
 
-> After all tasks are implemented, continue to the **Template Sync Gate** (if applicable) then the **Post-Execution Pipeline** below. Do not stop after the output report.
+> **MANDATORY**: After all tasks are implemented, you MUST continue to the **Template Sync Gate** (if applicable) then the **Post-Execution Pipeline** below. Do NOT stop after the output report — the pipeline handles validation, review, progress tracking, and commit.
 
 ## Plan to Execute
 
@@ -66,23 +66,28 @@ After assessing scope, use `TodoWrite` to register applicable pipeline steps.
 
 ## Post-Execution Pipeline
 
+> **First**: Use `TodoWrite` to register the steps that apply to your scope. Check each off as you complete it — this makes skipped steps immediately visible.
+
 ### Step 1: Test
 Run `/test` — plan's testing strategy, fix-as-you-go. `test-planner` subagent validates test plan.
 
 ### Step 2: Code Review (subagent)
-Invoke `code-reviewer` subagent on all changes. Produces findings for Step 5.
+Invoke `code-reviewer` subagent on all changes. Produces findings for Step 4.
 
 ### Step 3: Validate
 Run `/check` — lint, types, tests, build. Fix and re-run until clean.
 
-### Step 4: Execution Report (conditional)
-Run `/execution-report` — only if divergences or challenges were detected during execution. If execution was clean (all tasks completed as planned), skip this step.
+### Step 4: Code Review
+Run `/review` starting from subagent findings (Step 2). Auto-fix low-severity, present medium+ to user.
 
-### Step 5: Code Review
-Run `/review` starting from subagent findings + execution-report findings (if available). Auto-fix low-severity, present medium+ to user.
+### Step 5: Update Progress (MANDATORY — all scopes)
+Run `/update-progress` to capture session state, document findings, and record quality check results. Run this **after** quality checks so the progress doc reflects the full picture.
 
-### Step 6: Sync Docs (optional)
-Ask: "Want to run `/sync-docs` first? It archives completed plans, flags stale docs, and syncs CLAUDE.md/README.md." Skip if declined.
+### Step 6: Commit
+Run `/commit` — draft message and commit.
 
-### Step 7: Update Progress & Commit
-Run `/update-progress` → `/commit`
+### Step 7 (optional): Execution Report
+Run `/execution-report` — only if divergences or challenges were detected during execution. Skip if clean.
+
+### Step 8 (optional): Sync Docs
+Ask: "Want to run `/sync-docs`? It archives completed plans, flags stale docs, and syncs CLAUDE.md/README.md." Skip if declined.

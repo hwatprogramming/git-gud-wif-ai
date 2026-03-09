@@ -67,7 +67,7 @@ Present: what changes, files modified, smallest possible diff, blast radius summ
 
 1. Safety net tests pass? → 2. Full suite — new failures? → 3. Fix works? → 4. Blast radius files OK? → 5. Build OK?
 
-If a previously-passing test now fails: **stop**, present to user, do not proceed.
+If a previously-passing test now fails: **STOP immediately.** Present to user, do not proceed.
 
 ### Phase 7: Document
 

@@ -24,7 +24,7 @@ Review recently changed files. Auto-fix low-severity, present medium+ to user.
 ## Process
 
 ### 0. Check for Subagent Findings
-If `code-reviewer` subagent already ran, use its findings as starting point.
+If `code-reviewer` subagent already ran, use its findings as starting point. **Don't duplicate its analysis** — build on what it found.
 
 ### 1. Gather Context
 Read CLAUDE.md, README, key files. Scan `.claude/reference/` headers (first 5 lines) — fully read only docs whose **Applies to** tags match the project stack.

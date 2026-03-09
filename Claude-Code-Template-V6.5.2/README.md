@@ -1,17 +1,17 @@
-# Claude Code Template V6.5.1
+# Claude Code Template V6.5.2
 
 A Claude Code project template with full SDLC coverage — from discovery to
 implementation to reflection, with automated quality gates and subagents.
 
-## What's New in V6.5.1
+## What's New in V6.5.2
 
-- **Permissions Security Audit** — Systematic audit of all ~145 allow patterns across 4 risk categories
-- **New deny rule** — `rm -r *` closes gap where recursive delete without `-f` bypassed the `rm -rf` deny
-- **8 patterns moved to ask** — `npx`, `pipx`, `kill`, `pkill`, `chmod`, `ln`, bare `env`, bare `printenv`
-- **Documented rationale** — Every keep/move/deny decision documented with risk analysis
-- **`/remove-personal-info`** — New skill to scrub personal info, audit .gitignore, and prepare for public sharing
-- **34 Skills** — Tighter security posture plus public sharing workflow
-- **V6.4 hooks** — SessionStart JSON fix (doesn't work?), PostToolUse auto-formatter (2 hook scripts)
+- **Robustness pass** — Expanded downstream readiness checklist in `/create-prd`, stronger enforcement in `/update-progress`, `/safe-fix`, `/upgrade-template`
+- **`/execute` pipeline reordered** — Progress tracking now mandatory, commit moved earlier, execution report demoted to optional
+- **`/setup` reference doc cleanup** — New Step 7 removes tech-specific reference docs that don't match the project stack
+- **`/create-skill` auto-updates `/help`** — New skills are now registered in the help table automatically
+- **`/upgrade-template` deprecated skill cleanup** — Automatically removes old template skills replaced in newer versions
+- **Token & rate limit guide** — New reference doc with per-skill turn counts, session budgets, and plan-specific tips (9 reference docs total)
+- **34 Skills** — Same count, better internals
 
 ## Quick Install
 
@@ -40,6 +40,7 @@ is preserved in `.claude/reference/`:
 | `subagents-and-hooks-guide.md` | 6 subagents, hooks, configuration examples |
 | `context-architecture.md` | Layered context system (CLAUDE.md, rules, reference, memory) |
 | `mcp-and-plugins-guide.md` | MCP server setup, plugins, configuration examples |
+| `token-and-rate-limit-guide.md` | Per-skill turn counts, session budgets, plan-specific tips |
 
 ## Skills Overview (34 total)
 
@@ -103,7 +104,7 @@ your-project/
 │   ├── skills/                # 34 workflow skills
 │   ├── templates/             # Root-file templates (used by /setup)
 │   ├── template-version.json  # Template version tracking
-│   └── reference/             # Best practices docs (loaded on demand)
+│   └── reference/             # Best practices docs (9 docs, loaded on demand)
 ├── .agents/                   # Pipeline output (selectively gitignored)
 │   ├── plans/                 # Implementation plans (tracked)
 │   ├── progress/              # Session handoff docs (tracked)

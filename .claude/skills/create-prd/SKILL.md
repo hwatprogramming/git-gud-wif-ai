@@ -37,7 +37,14 @@ Adapt depth based on available information:
 2. **Synthesize** into sections, fill reasonable assumptions, maintain consistency
 3. **Write** with clear language, concrete examples, markdown formatting
 4. **Quality check**: all sections present, stories have benefits, MVP realistic, tech justified, phases actionable, criteria measurable
-5. **Downstream readiness**: tech stack has versions, architecture derives file structure, scope boundaries unambiguous, phases map to plannable features, low-confidence decisions flagged, examples are concrete, criteria measurable
+5. **Downstream readiness** — verify before finalizing:
+   - [ ] Tech stack is specific (versions, not just "React" but "React 19 + Vite 6")
+   - [ ] Architecture approach derives file structure
+   - [ ] MVP scope boundaries are unambiguous
+   - [ ] Implementation phases map to plannable features
+   - [ ] Low-confidence decisions explicitly flagged
+   - [ ] User stories have concrete examples
+   - [ ] Success criteria are measurable
 
 ## After PRD
 

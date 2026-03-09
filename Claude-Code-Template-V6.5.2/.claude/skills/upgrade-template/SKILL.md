@@ -29,21 +29,47 @@ Show each target with `.claude/` status: `[x]` = upgrade, `[ ]` = fresh install.
 
 ### 2. Inventory Source & Target
 
-Dynamically list `.claude/` contents in both (skills, agents, rules, reference, templates, settings.json). Do not hardcode file names.
+Dynamically list `.claude/` contents in both (skills, agents, rules, reference, templates, settings.json). **Do NOT hardcode file names — always list at runtime so future versions are covered automatically.**
 
-### 3. Compute Upgrade Manifest
+### 3. Clean Up Deprecated Skills
+
+Remove old template skills that were replaced in newer versions. These are NOT project-specific — they are leftover from previous template versions.
+
+**Deprecated skills to delete:**
+
+| Old Skill | Replaced By |
+|-----------|-------------|
+| `describe-bug` | `/describe` (bug mode) |
+| `describe-project` | `/new-project` |
+| `describe-task` | `/describe` (feature/refactor mode) |
+| `describe-test` | `/describe` + `/test` |
+| `describe-situation` | `/describe` (brownfield mode) |
+| `fix-bug` | `/plan` → `/execute` or `/safe-fix` |
+| `configure-automation` | `/setup` |
+| `test-all` | `/test-everything` |
+| `research` | `researcher` subagent |
+| `dependency-audit` | `/test-everything` Phase 3 |
+| `project-interview` | `/new-project` |
+| `project-planning` | `/plan` |
+
+For each target: scan for these, list any found, delete them. Report what was removed.
+
+**Do not delete** skills that aren't in this list — those are project-specific customizations.
+
+### 4. Compute Upgrade Manifest
 
 | Category | Meaning | Action |
 |----------|---------|--------|
 | **ADD** | In template, not in target | Copy |
 | **UPDATE** | In both | Template overwrites |
-| **PRESERVE** | In target only | Untouched |
+| **PRESERVE** | In target only (not deprecated) | Untouched |
+| **DELETE** | Deprecated old template skill | Remove |
 
-### 4. Present Plan & Get Approval
+### 5. Present Plan & Get Approval
 
 Show full manifest with counts per component type. Ask: "Proceed with upgrade?" Do not change anything until confirmed.
 
-### 5. Copy Components
+### 6. Copy Components
 
 Copy each component individually (merge, not replace):
 - **Skills**: `cp -r` each skill folder
@@ -52,22 +78,22 @@ Copy each component individually (merge, not replace):
 
 Create missing directories first. Batch copies with loops.
 
-### 6. Merge settings.json
+### 7. Merge settings.json
 
 - **permissions.allow/deny**: Show additions, note custom entries preserved, ask to confirm
 - **hooks**: Show new/changed hooks, ask per section
 - **Quick option**: "Take all template defaults" for projects with no customizations
 - No target settings.json → copy directly. Invalid → warn, offer replace or skip.
 
-### 7. Scaffold & Update Version
+### 8. Scaffold & Update Version
 
 - Copy `.agents/changelog.md` only if missing (never overwrite)
 - Create `.agents/code-reviews/`, `.agents/execution-reports/` if missing
 - Write `template-version.json` with new version and today's date
 
-### 8. Loop & Summary
+### 9. Loop & Summary
 
-Repeat steps 2-7 for each target. Final rollup:
+Repeat steps 2-8 for each target. Final rollup:
 
 ```
 === Upgrade Summary ===

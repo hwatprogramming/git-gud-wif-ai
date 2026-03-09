@@ -83,7 +83,7 @@ Don't have a project yet? Create a folder, initialize git (`git init` or create 
 
    ![Download ZIP](references/github-download-options.png)
 
-2. Extract it and copy `.claude/`, `.agents/`, and `CLAUDE.md` from `Claude-Code-Template-V6.5.1/` into your project root
+2. Extract it and copy `.claude/`, `.agents/`, and `CLAUDE.md` from `Claude-Code-Template-V6.5.2/` into your project root
 
 ---
 
@@ -128,7 +128,7 @@ This is how the template is designed to work — `/prime` reads your project sta
 
 ## Token & Rate Limits
 
-The template itself is lightweight — **~6,000-8,000 tokens** loaded per turn (~3-4% of the 200k context window). Skills load on-demand, adding ~400-1,400 tokens each.
+The template itself is lightweight — **~5,500-7,500 tokens** loaded per turn (~3-4% of the 200k context window), including Claude Code's system prompt. The template's own overhead is ~2,575 tokens. Skills load on-demand, adding ~400-1,150 tokens each.
 
 **What actually matters is your plan's rate limit.** In Claude Code, one user message can trigger multiple API calls (tool use, subagents, chained skills). Here's what to expect:
 
@@ -154,7 +154,7 @@ See [references/token-and-rate-limit-guide.md](references/token-and-rate-limit-g
 
 ```
 git-gud-wif-ai/
-├── Claude-Code-Template-V6.5.1/   # The template — copy into your projects
+├── Claude-Code-Template-V6.5.2/   # The template — copy into your projects
 │   ├── .claude/                    # Skills, subagents, hooks, rules, reference docs
 │   ├── .agents/                    # Plans, progress docs (created by /setup)
 │   ├── CLAUDE.md                   # Project context template

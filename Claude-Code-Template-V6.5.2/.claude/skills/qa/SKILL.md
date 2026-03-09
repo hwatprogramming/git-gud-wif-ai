@@ -15,9 +15,7 @@ Verify implementation meets requirements. Cross-references PRD user stories and 
 
 Check for requirements: `PRD.md` / `.claude/PRD.md` → recent plan in `.agents/plans/` → `CLAUDE.md`.
 
-**If none found** → suggest: "I can't find a PRD or requirements to verify against. Want to run `/create-prd` first? QA needs clear requirements to be meaningful."
-
-If user wants to proceed anyway → ask them to describe the requirements verbally.
+**If none found** → ask: "What requirements should I verify against?" Do not proceed without requirements — QA needs clear criteria to be meaningful. Suggest `/create-prd` if the project lacks one.
 
 ### 1. Load Requirements
 

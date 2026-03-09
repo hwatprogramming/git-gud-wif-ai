@@ -58,7 +58,14 @@ Fill in: Commands, Project Structure, Access Points.
 
 Check `.claude/reference/popular-skills.md` for curated skills matching the project stack. Run `npx skills find [tech]` if not covered. Suggest 1-2 relevant skills. Don't auto-install.
 
-### 7. Update README.md
+### 7. Reference Doc Cleanup
+
+Template ships tech-specific reference docs that may not apply. Delete any that don't match the project stack:
+- `deployment-best-practices.md`, `fastapi-best-practices.md`, `react-frontend-best-practices.md`, `sqlite-best-practices.md`, `testing-and-logging.md`
+
+Keep general docs: `automation-recommendations.md`, `context-architecture.md`, `mcp-and-plugins-guide.md`, `skill-authoring-guidelines.md`, `skills-and-workflow-guide.md`, `subagents-and-hooks-guide.md`, `popular-skills.md`, `skill-quality-heuristic.md`, `token-and-rate-limit-guide.md`
+
+### 8. Update README.md
 
 If README has template docs, replace with: project name, description, tech stack, getting started, structure (30-50 lines).
 

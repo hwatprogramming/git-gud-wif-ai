@@ -24,6 +24,8 @@ Capture implementation state after `/execute` or `/plan`. Produces a handoff doc
 
 ### Save Progress Document
 
+**You MUST use the Write tool to create this file.** Do not just describe what you would write — actually write it. After writing, read the file back to verify it exists.
+
 Save to: `.agents/progress/[plan-name]-progress.md`
 
 ```markdown

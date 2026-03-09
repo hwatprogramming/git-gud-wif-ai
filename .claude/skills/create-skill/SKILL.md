@@ -49,7 +49,8 @@ Design workflow: numbered steps, decision points, validation, "done" definition.
 
 1. Present: name, description, type, arguments, steps, workflow placement
 2. Check file exists with valid YAML
-3. **Quick mode** → "Created `/[name]` — try it out." Stop here.
+3. Update `/help` skill's command reference table if the new skill fits a category
+4. **Quick mode** → "Created `/[name]` — try it out." Stop here.
 4. **Full mode** → Continue to Phase 6.
 
 ---
